@@ -14,7 +14,7 @@ This is useful for a variety of reasons:
 
 Works for:
 
-* `gmail.com`, `googlemail.com` and `google.com`, the [only domains Google is known to use for incoming email](https://en.wikipedia.org/wiki/List_of_Google_domains).
+* `gmail.com`, `googlemail.com` and `google.com` - the [only domains Google is known to use for incoming email](https://en.wikipedia.org/wiki/List_of_Google_domains)
 * Any domain [hosted with Google Apps for Work](https://en.wikipedia.org/wiki/Google_Apps_for_Work#Gmail)
 * FastMail and [domains hosted with FastMail](https://www.fastmail.com/help/receive/domains.html)
 * Microsoft's outlook.com, hotmail.com, live.com
@@ -35,7 +35,12 @@ var normalizedEmail = Email.normalize('a.b.c+tag@gmail.com', options);  // abc@g
 * `forceRemoveTags` - default `false`; if true, will remove anything between the first '+', '-' or '=' and the '@' sign
 * `detectProvider` - default `false` because it makes a DNS lookup request for the MX record of the domain to see if it might be a Google Apps for Business domain, in which case Gmail rules will be applied
 
-Note that while this package will return a canonical email address, it's respectful to your users to email them at the address they have supplied, since custom filter rules might depend on it.
+
+### Notes
+
+If you're using this package to canonicalize email addresses for Gravatar, make sure to search (i.e. compute the hash for) the original email address first, since the user might legitimately always use something like `first.last@gmail.com`. Also, the original email address should always have priority (consider a user who has Gravatars for both `user+games@example.com` and `user+professional@example.com`).
+
+When sending email use the original as well - it's respectful to your users to email them at the address they have supplied, since custom filter rules might depend on it.
 
 
 ## Prior art
