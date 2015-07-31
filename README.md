@@ -10,7 +10,7 @@ Meteor package to normalize email addresses to their canonical form:
 This is useful for a variety of reasons:
 
 * Get the real Gravatar of a user who registers for your service with theiremail+yourservice@gmail.com. We use this at [iDoRecall](https://idorecall.com).
-* Detect duplicate emails.
+* Detect duplicate emails for fraud prevention.
 
 Works for:
 
@@ -45,7 +45,7 @@ When sending email use the original as well - it's respectful to your users to e
 
 ## Prior art
 
-* [normalize-email](https://github.com/johnotander/normalize-email) npm package - doesn't support Yahoo! or FastMail. We [started contributing](https://github.com/johnotander/normalize-email/issues/1) by fixing the naive removal of dots from Microsoft accounts, which was an, but it quickly became apparent that a more comprehensive approach was needed.
+* [normalize-email](https://github.com/johnotander/normalize-email) npm package - doesn't support Yahoo! or FastMail. We [started contributing](https://github.com/johnotander/normalize-email/issues/1) by fixing the naive removal of dots from Microsoft accounts (which was an error), but it quickly became apparent that a more comprehensive approach was needed.
 * [djanho-canonical-email](https://github.com/julianwachholz/django-canonical-email) - written in Python, doesn't support anything but Gmail
 * [soundcloud/normailize](https://github.com/soundcloud/normailize) - Ruby, not maintained since March 2013
 
