@@ -33,14 +33,41 @@ Tinytest.add('Microsoft', function (test) {
   test.equal(Email.normalize('a.b.c+d@live.com'), 'a.b.c@live.com');
 });
 
-Tinytest.add('Google Apps for Business', function (test) {
-  test.equal(Email.normalize('a.b.c+tag@blueseed.com', {detectProvider: true}), 'abc@blueseed.com');
+Tinytest.add('Google Apps for Work', function (test) {
   test.equal(Email.normalize('a.b.c+tag@idorecall.com', {detectProvider: false}), 'a.b.c+tag@idorecall.com');
+  if (Meteor.isServer) test.equal(Email.normalize('a.b.c+tag@blueseed.com', {detectProvider: true}), 'abc@blueseed.com');  // sync server call
 });
 
 Tinytest.add('FastMail', function (test) {
   test.equal(Email.normalize('a.b.c+tag@fastmail.com'), 'a.b.c@fastmail.com');
   test.equal(Email.normalize('a.b.c+tag@fastmail.fm'), 'a.b.c@fastmail.fm');
-  test.equal(Email.normalize('notpublic+tag@denis.gladkikh.email', {detectProvider: true}), 'notpublic@denis.gladkikh.email');  // http://outcoldman.com/en/archive/2014/05/08/fastmail/
+  // http://outcoldman.com/en/archive/2014/05/08/fastmail/
   test.equal(Email.normalize('denis+tag@outcoldman.com', {detectProvider: false}), 'denis+tag@outcoldman.com');
+});
+
+Tinytest.addAsync('Async test Google Apps for Work', function (test, done) {
+  Email.normalize('a.b.c+tag@blueseed.com', {detectProvider: true}, function (error, result) {
+    test.equal(result, 'abc@blueseed.com');
+    done();
+  });
+});
+
+Tinytest.addAsync('Async test Fastmail', function (test, done) {
+  Email.normalize('notpublic+tag@denis.gladkikh.email', {detectProvider: true}, function (error, result) {
+    test.equal(result, 'notpublic@denis.gladkikh.email');
+    done();
+  });
+});
+
+Tinytest.addAsync('Async test no special provider', function (test, done) {
+  Email.normalize('ad.missions+impossible@stanford.edu', {detectProvider: true}, function (error, result) {
+    test.equal(result, 'ad.missions+impossible@stanford.edu', 'Returning the same email when no providers have been detected');
+    done();
+  });
+});
+
+if (Meteor.isClient) Tinytest.add('Async test on the client requires callback', function (test) {
+  test.throws(function () {
+    Email.normalize('a.b.c+tag@blueseed.com', {detectProvider: true});
+  }, /callback/);
 });

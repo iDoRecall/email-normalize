@@ -15,4 +15,3 @@ before_script:
 
 script:
   - node_modules/.bin/spacejam --mongo-url mongodb:// test-packages ./
-  

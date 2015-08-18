@@ -97,9 +97,10 @@
     "passfail"      : false,    // true: Stop on first error
     "white"         : true,     // true: Check against strict whitespace and indentation rules
 
-    // Custom globals, from http://docs.meteor.com, in the order they appear there
     "globals"       : {
+      // Custom globals, from http://docs.meteor.com, in the order they appear there
       "Meteor": false,
+      "HTTP": false,
       "Email": true,
 
       // globals useful when creating Meteor packages
