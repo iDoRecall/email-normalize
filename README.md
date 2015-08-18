@@ -1,5 +1,5 @@
-iDoRecall:email-normalize [![Build Status](https://travis-ci.org/iDoRecall/email-normalize.svg)](https://travis-ci.org/iDoRecall/email-normalize) [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/idorecall/email-normalize.svg)](http://isitmaintained.com/project/idorecall/email-normalize "Average time to resolve an issue") [![Percentage of issues still open](http://isitmaintained.com/badge/open/idorecall/email-normalize.svg)](http://isitmaintained.com/project/idorecall/email-normalize "Percentage of issues still open") ![GitHub license](https://img.shields.io/:license-mit-blue.svg?style=flat)
-=========================
+# iDoRecall:email-normalize
+[![Build Status](https://travis-ci.org/iDoRecall/email-normalize.svg)](https://travis-ci.org/iDoRecall/email-normalize) [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/idorecall/email-normalize.svg)](http://isitmaintained.com/project/idorecall/email-normalize "Average time to resolve an issue") [![Percentage of issues still open](http://isitmaintained.com/badge/open/idorecall/email-normalize.svg)](http://isitmaintained.com/project/idorecall/email-normalize "Percentage of issues still open") ![GitHub license](https://img.shields.io/:license-mit-blue.svg?style=flat)
 
 Client/server Meteor package to normalize email addresses to their canonical form:
 

@@ -128,7 +128,6 @@ Email.normalize = function normalizeEmail(email, options, callback) {
 
       return HTTP.get('http://enclout.com/api/v1/dns/show.json', {params: {url: domain}}, function (error, result) {
         if (error) return callback(error);
-        console.log(result);
         var addresses = result.data.dns_entries;
         for (var i = 0; i < addresses.length; i++) {
           if (!addresses[i].Type) return callback('Could not find Type field in Enclout API result. Has the format changed?');
