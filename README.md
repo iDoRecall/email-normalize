@@ -3,7 +3,7 @@
 
 Client/server Meteor package to normalize email addresses to their canonical form:
 
-* remove dots in GMail or Google Apps for Work addresses
+* remove dots in GMail or email addresses hosted by similar services (Google Apps for Work, FastMail)
 * remove [address tags](https://en.wikipedia.org/wiki/Email_address#Sub-addressing) starting with '+', or '-' for Yahoo!, or '=' as well if desired
 * converts alias domains to the canonical one, e.g. googlemail.com to gmail
 
@@ -12,7 +12,7 @@ This is useful for a variety of reasons:
 * Get the real Gravatar of a user who registers for your service with theiremail+yourservice@gmail.com. We use this at [iDoRecall](https://idorecall.com).
 * Detect duplicate emails for fraud prevention.
 
-Works for:
+## Works for
 
 * `gmail.com`, `googlemail.com` and `google.com` - the [only domains Google is known to use for incoming email](https://en.wikipedia.org/wiki/List_of_Google_domains)
 * Any domain [hosted with Google Apps for Work](https://en.wikipedia.org/wiki/Google_Apps_for_Work#Gmail)
